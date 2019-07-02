@@ -74,8 +74,8 @@ class ExampleUnitTest {
     @Test
     fun test_copy2() {
         val user = User.makeUser("John Wick")
-        val user2 = user.copy(lastVisit = Date().add(-2,TimeUnits.SECONDS))
-        val user3 = user.copy(lastName = "Cena", lastVisit = Date().add(2, TimeUnits.HOURS))
+        val user2 = user.copy(lastVisit = Date().add(-2,TimeUnits.SECOND))
+        val user3 = user.copy(lastName = "Cena", lastVisit = Date().add(2, TimeUnits.HOUR))
 
         println("""
             ${user.lastVisit?.format()}
@@ -176,7 +176,7 @@ class ExampleUnitTest {
             .avatar("avatar")
             .rating(10)
             .respect(5)
-            .lastVisit(Date().add(-2, TimeUnits.DAYS))
+            .lastVisit(Date().add(-2, TimeUnits.DAY))
             .isOnline(true)
             .build()
 
@@ -187,7 +187,7 @@ class ExampleUnitTest {
     @Test
     fun test_time() {
         val date1 = Date()
-        val date2 = Date().add(-1, TimeUnits.HOURS)
+        val date2 = Date().add(-1, TimeUnits.HOUR)
         println(date1.time -  date2.time)
     }
 
