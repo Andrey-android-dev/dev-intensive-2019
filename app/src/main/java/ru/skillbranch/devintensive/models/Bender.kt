@@ -14,16 +14,15 @@ class Bender(var status : Status = Status.NORMAL, var question : Question = Ques
         Question.BDAY -> Question.BDAY.question
         Question.SERIAL ->Question.SERIAL.question
         Question.IDLE -> Question.IDLE.question
-
     }
 
     fun listenAnswer(answer : String) : Pair<String, Triple<Int,Int,Int>>{
-        return if (question.answers.contains(answer)) {
+        return if (question.answers.contains(answer.toLowerCase())) {
             question = question.nextQuestion()
             if (question.question.equals(Question.IDLE)) {
-                "Отлично - ты справился!\nНа этом вопросов больше нет" to status.color
+                "Отлично - ты справился\nНа этом вопросов больше нет" to status.color
             } else {
-                "Отлично - ты справился!\n${question.question}" to status.color
+                "Отлично - ты справился\n${question.question}" to status.color
             }
         } else {
             if (status.equals(Status.CRITICAL)) {
@@ -32,7 +31,7 @@ class Bender(var status : Status = Status.NORMAL, var question : Question = Ques
                 "Это неправильный ответ. Давай все по новой\n${question.question}" to status.color
             } else {
                 status = status.nextStatus()
-                "Это неправильный ответ!\n${question.question}" to status.color
+                "Это неправильный ответ\n${question.question}" to status.color
             }
         }
     }
