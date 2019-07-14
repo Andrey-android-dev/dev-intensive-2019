@@ -48,6 +48,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             return@OnEditorActionListener when(actionId){
                 EditorInfo.IME_ACTION_DONE -> {
                     onClick(sendBtn)
+                    hideKeyboard()
                     true
                 } else -> false
             }
