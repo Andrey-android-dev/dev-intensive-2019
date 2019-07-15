@@ -56,7 +56,7 @@ class Bender(var status : Status = Status.NORMAL, var question : Question = Ques
 
         NAME("Как меня зовут?", listOf("бендер", "bender")) {
             override fun validate(answer: String): String {
-                if (answer.trim().get(0).isUpperCase()) {
+                if (answer.length > 0 && answer.trim().get(0).isUpperCase()) {
                     return ""
                 } else {
                     return "Имя должно начинаться с заглавной буквы"
