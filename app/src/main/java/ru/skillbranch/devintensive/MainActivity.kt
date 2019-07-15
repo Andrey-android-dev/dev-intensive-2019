@@ -103,7 +103,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
             val validate = benderObj.question.validate(userInput)
             if (!validate.equals("")) {
-                textTxt.text = validate
+                textTxt.text = "${validate}\n${benderObj.question.question}"
                 return
             }
 
